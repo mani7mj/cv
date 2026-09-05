@@ -1,84 +1,352 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Mani's Personal Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Resume of Akkala Manikanta, Java Backend Developer">
+    <title>Akkala Manikanta | Java Backend Developer</title>
+    <style>
+      :root {
+        --ink: #172033;
+        --muted: #5d687d;
+        --accent: #1f6f8b;
+        --accent-dark: #12445b;
+        --line: #d9e3e9;
+        --paper: #ffffff;
+        --background: #edf3f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.55;
+      }
+
+      .resume {
+        max-width: 1120px;
+        margin: 32px auto;
+        background: var(--paper);
+        box-shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+      }
+
+      .hero {
+        padding: 48px 56px 40px;
+        color: white;
+        background: linear-gradient(120deg, var(--accent-dark), var(--accent));
+      }
+
+      h1, h2, h3, p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+        font-size: clamp(2rem, 5vw, 3.3rem);
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+      }
+
+      .headline {
+        margin-bottom: 24px;
+        color: #d9f2fa;
+        font-size: 1.08rem;
+        font-weight: bold;
+        letter-spacing: 0.02em;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        margin: 0;
+        color: #f3fbfd;
+        font-size: 0.95rem;
+      }
+
+      .contact a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.85fr);
+      }
+
+      main, aside {
+        padding: 38px 46px;
+      }
+
+      aside {
+        border-left: 1px solid var(--line);
+        background: #f8fbfc;
+      }
+
+      section + section {
+        margin-top: 38px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+        color: var(--accent-dark);
+        font-size: 0.88rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .section-title::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: var(--line);
+      }
+
+      .summary {
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .role {
+        margin-bottom: 34px;
+      }
+
+      .role:last-child {
+        margin-bottom: 0;
+      }
+
+      .role-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 10px;
+      }
+
+      .role h3 {
+        margin-bottom: 2px;
+        font-size: 1.1rem;
+      }
+
+      .company {
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .date {
+        flex: 0 0 auto;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: right;
+      }
+
+      .role p {
+        margin-bottom: 8px;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 7px;
+        color: var(--muted);
+      }
+
+      .skill-group {
+        padding: 13px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .skill-group:first-of-type {
+        padding-top: 0;
+      }
+
+      .skill-group:last-child {
+        border-bottom: 0;
+      }
+
+      .skill-group strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--ink);
+        font-size: 0.9rem;
+      }
+
+      .skill-group span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .education h3 {
+        margin-bottom: 4px;
+        font-size: 1rem;
+      }
+
+      .education p {
+        margin-bottom: 4px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .resume {
+          margin: 0;
+        }
+
+        .hero, main, aside {
+          padding: 30px 24px;
+        }
+
+        .layout {
+          display: block;
+        }
+
+        aside {
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .role-header {
+          display: block;
+        }
+
+        .date {
+          margin-top: 4px;
+          text-align: left;
+        }
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+
+        .resume {
+          width: 100%;
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <table>
-      <tr>
-        <td><img src="Images/profile-photo-circle-mani-1.png" alt="Profile Picture"></td>
-        <td><h1>Mani A</h1>
-        <p><em>Full Stack Developer</em></p>
-        <p>I am a full stack web developer with 2 years of experience. I love to create websites and I have learned full stack developement course in
-          <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12287450#overview"><strong>Udemy</strong></a>
-        </p></td>
-      </tr>
-    </table>
+    <article class="resume">
+      <header class="hero">
+        <h1>AKKALA MANIKANTA</h1>
+        <p class="headline">Java Backend Developer | Java | Spring Boot | InsuranceNow | REST APIs | JPA/Hibernate</p>
+        <p class="contact">
+          <a href="mailto:maniakkanta7@gmail.com">maniakkanta7@gmail.com</a>
+          <a href="tel:+919603484284">+91-9603484284</a>
+        </p>
+      </header>
 
-    <hr />
-    <h3>Education</h3>
-    <ul>
-      <li>B.Tech - 65%</li>
-      <ul>
-        <li>St.Ann's College Of Engineering and Technologi</li>
-      </ul>
-      <li>Intermediate - 80%</li>
-      <ul>
-        <li>Vignana Bharati Junior College</li>
-      </ul>
-      <li>SSC - 80%</li>
-      <ul>
-        <li>Z.P.H.S Pandillapalli</li>
-      </ul>
-    </ul>
-    <h3>Hobbies</h3>
-    <ol>
-      <li>Book Reading</li>
-      <li>Playing Chess</li>
-      <li>playing Guitar</li>
-    </ol>
-    <h3>Work Experience</h3>
-    <table border="1">
-      <thead>
-      <tr>
-        <th>Dates</th>
-        <th>Work</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2019-2022</td>
-          <td>Cognizant</td>
-        </tr>
-        <tr>
-          <td>2022</td>
-          <td>Accenture/TCS</td>
-        </tr>
-      </tbody>
-      <tfoot>
+      <div class="layout">
+        <main>
+          <section>
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+              Java Backend Developer with 6+ years of experience in enterprise application development and
+              production support using Java, Spring Boot, Spring MVC, JPA, Hibernate, and RESTful APIs.
+              Hands-on experience working on Guidewire InsuranceNow within the Property &amp; Casualty insurance
+              domain, with a focus on policy creation, validation, rating, and issuance workflows. Strong
+              experience in debugging production issues, implementing business rules, analyzing application
+              flows, and collaborating with QA, business, and cross-functional engineering teams.
+            </p>
+          </section>
 
-      </tfoot>
-    </table>
-    <h3>Skills</h3>
-    <table>
-      <tr>
-        <td>ios development</td>
-        <td>⭐⭐⭐⭐</td>
-      </tr>
-      <tr>
-        <td>web developemet</td>
-        <td>⭐⭐⭐⭐⭐</td>
-      </tr>
-      <tr>
-        <td>Singing</td>
-        <td>⭐⭐</td>
-      </tr>
-      <tr>
-        <td>Guitar</td>
-        <td>⭐⭐⭐</td>
-      </tr>
-    </table>
-    <h3> <a href="contact-details.html">Contact Me</a> </h3>
+          <section>
+            <h2 class="section-title">Professional Experience</h2>
+            <article class="role">
+              <div class="role-header">
+                <div>
+                  <h3>Java Developer / Software Engineer</h3>
+                  <div class="company">Cognizant Technology Solutions</div>
+                </div>
+                <div class="date">Dec 2019 - Present</div>
+              </div>
+              <ul>
+                <li>Developed and supported enterprise insurance applications using Java, Spring Boot, Spring MVC, JPA, and Hibernate.</li>
+                <li>Developed and maintained backend services and RESTful APIs supporting insurance policy workflows.</li>
+                <li>Implemented business logic and rules related to policy creation, validation, rating, and issuance.</li>
+                <li>Worked on transaction-based processing, form attachment, and printing-related functionality within the policy lifecycle.</li>
+                <li>Participated in requirement analysis and pre-design discussions to identify technical solutions.</li>
+                <li>Investigated and resolved production defects through Java debugging, application log analysis, and root-cause investigation.</li>
+                <li>Worked on production-critical issues and provided fixes while minimizing application downtime and business impact.</li>
+                <li>Used JPA/Hibernate for persistence and Oracle/MySQL for data retrieval, validation, and troubleshooting.</li>
+                <li>Collaborated with QA, business analysts, frontend developers, and engineering teams through development, testing, and releases.</li>
+                <li>Used Git, Maven, Jenkins, and JIRA in an Agile/Scrum development and release lifecycle.</li>
+              </ul>
+            </article>
+          </section>
+
+          <section>
+            <h2 class="section-title">Project Experience</h2>
+            <article class="role">
+              <div class="role-header">
+                <div>
+                  <h3>Guidewire InsuranceNow</h3>
+                  <div class="company">Nationwide Mutual Insurance Company | Java / Spring Boot Backend Developer</div>
+                </div>
+                <div class="date">Mar 2021 - Present</div>
+              </div>
+              <p><strong>Domain:</strong> Property &amp; Casualty Insurance</p>
+              <p>
+                Enterprise P&amp;C insurance application supporting the policy lifecycle, including policy
+                creation, business-rule processing, rating, validation, and issuance.
+              </p>
+              <ul>
+                <li>Developed backend functionality using Java and Spring Boot for InsuranceNow policy processing.</li>
+                <li>Implemented and enhanced policy creation and issuance workflows based on business requirements.</li>
+                <li>Developed business logic and validation rules using Java and Spring-based components.</li>
+                <li>Worked on rating-related functionality and insurance business rules.</li>
+                <li>Developed and maintained REST-based backend services for application functionality and integrations.</li>
+                <li>Worked with Spring Data JPA / Hibernate for persistence and database operations.</li>
+                <li>Investigated issues by tracing business flows, analyzing logs, debugging Java code, and identifying root causes.</li>
+                <li>Provided production support and defect resolution for policy-related functionality.</li>
+                <li>Participated in requirement analysis and pre-design discussions with business and technical teams.</li>
+                <li>Worked with JavaScript, HTML, and XML where required for end-to-end implementation and troubleshooting.</li>
+                <li>Collaborated with QA and cross-functional teams to validate fixes and support application releases.</li>
+              </ul>
+            </article>
+          </section>
+        </main>
+
+        <aside>
+          <section>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skill-group"><strong>Insurance Platform</strong><span>Guidewire InsuranceNow</span></div>
+            <div class="skill-group"><strong>Languages</strong><span>Java, JavaScript, HTML, XML</span></div>
+            <div class="skill-group"><strong>Backend Technologies</strong><span>Spring Boot, Spring MVC, Spring Data JPA, Hibernate, RESTful APIs</span></div>
+            <div class="skill-group"><strong>Java</strong><span>OOP, Collections, Exception Handling, Java 8 Features, Streams</span></div>
+            <div class="skill-group"><strong>Architecture</strong><span>REST APIs, Service-to-Service Communication</span></div>
+            <div class="skill-group"><strong>Databases</strong><span>Oracle, MySQL, SQL</span></div>
+            <div class="skill-group"><strong>Testing</strong><span>JUnit</span></div>
+            <div class="skill-group"><strong>Build &amp; CI/CD</strong><span>Maven, Jenkins</span></div>
+            <div class="skill-group"><strong>Version Control</strong><span>Git</span></div>
+            <div class="skill-group"><strong>Production Support</strong><span>Application Logs, Production Debugging, Root-Cause Analysis</span></div>
+            <div class="skill-group"><strong>Tools</strong><span>IntelliJ IDEA, Eclipse, JIRA</span></div>
+            <div class="skill-group"><strong>Methodologies</strong><span>Agile, Scrum</span></div>
+          </section>
+
+          <section class="education">
+            <h2 class="section-title">Education</h2>
+            <h3>Bachelor's Degree</h3>
+            <p><strong>St. Ann's College of Engineering &amp; Technology</strong></p>
+            <p>JNTU Kakinada</p>
+            <p>Electronics and Communication Engineering | 2019</p>
+          </section>
+        </aside>
+      </div>
+    </article>
   </body>
 </html>
